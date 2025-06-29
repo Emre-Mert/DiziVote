@@ -1,0 +1,14 @@
+<Application x:Class="DiziVote.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DiziVote"
+             xmlns:converters="clr-namespace:DiziVote.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:NullToBooleanConverter x:Key="NullToBooleanConverter"/>
+            <converters:RatingToBrushMultiConverter x:Key="RatingToBrushMultiConverter"/>
+            <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

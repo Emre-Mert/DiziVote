@@ -1,0 +1,32 @@
+# Visual Studio cache files
+.vs/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.suo
+
+# Rider files
+.idea/
+
+# SQLite database file
+*.db
+*.db-journal
+
+# Secrets
+secrets.json
+appsettings.Development.json
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Other
+*.lock.json

@@ -1,0 +1,73 @@
+<Window x:Class="DiziVote.MyRatingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiziVote"
+        xmlns:viewModels="clr-namespace:DiziVote.ViewModels"
+        mc:Ignorable="d"
+        Title="Puanladığım Diziler"
+        Height="720" Width="1000"
+        WindowStartupLocation="CenterOwner">
+    <Window.DataContext>
+        <viewModels:MyRatingsViewModel/>
+    </Window.DataContext>
+    <Grid Background="#2E2E2E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding RatedShows}" SelectedItem="{Binding SelectedShow}" Background="#3C3C3C" BorderBrush="#555">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Name}" Foreground="White" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding UserRating, StringFormat='Puan: {0}'}" Foreground="Gold"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" IsEnabled="{Binding SelectedShow, Converter={StaticResource NullToBooleanConverter}}">
+            <StackPanel Margin="10" Background="WhiteSmoke">
+                <Image Source="{Binding SelectedShowDetails.PosterUrl}" Stretch="Uniform" MaxHeight="350" Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding SelectedShowDetails.Name}" FontWeight="Bold" FontSize="22" Margin="0,0,0,10" Foreground="Black"/>
+                <TextBlock Text="{Binding SelectedShowDetails.Overview}" TextWrapping="Wrap" FontSize="15" Foreground="Black"/>
+                <TextBlock Text="{Binding SelectedShow.UserRating, StringFormat='Verdiğiniz Puan: {0}'}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,10" Foreground="Black"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ItemsControl ItemsSource="{Binding Source={x:Static local:RatingNumbers.TenStars}}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding}" 
+                                        Command="{Binding DataContext.SetRatingCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="2">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <MultiBinding Converter="{StaticResource RatingToBrushMultiConverter}">
+                                                        <Binding Path="DataContext.UserRating" RelativeSource="{RelativeSource AncestorType=Window}"/>
+                                                        <Binding/>
+                                                    </MultiBinding>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                <Button Content="Puanı Güncelle" Command="{Binding UpdateRatingCommand}" Margin="0,10,0,0" HorizontalAlignment="Center" Width="140" Height="40" FontSize="16" Background="LightGreen"/>
+                <Button Content="Puanı Sil" Command="{Binding DeleteRatingCommand}" Margin="0,5,0,0" HorizontalAlignment="Center" Background="#FFCD5C5C" Width="140" Height="40" FontSize="16"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
