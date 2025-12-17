@@ -7,11 +7,19 @@ Kullanıcıların verdiği puanlar yerel bir SQLite veritabanında saklanır ve 
 ## Özellikler
 
 - **Dizi Arama**
+  <img width="1900" height="1000" alt="Ekran görüntüsü 2025-06-29 213613" src="https://github.com/user-attachments/assets/783d6677-fb2c-4ff8-ab0c-6ebe01627888" />
 - **Popüler dizileri Listeleme**
+  <img width="1908" height="1000" alt="Ekran görüntüsü 2025-06-29 212241" src="https://github.com/user-attachments/assets/8f7ff911-8ff4-4774-b8c0-166762499ee5" />
 - **Detay Görüntüleme**
+  <img width="1900" height="1000" alt="Ekran görüntüsü 2025-06-29 212811" src="https://github.com/user-attachments/assets/569cbc8e-cd25-4b75-9c66-f3f5cec24077" />
 - **Puan Görüntüleme**
+  <img width="1900" height="1000" alt="Ekran görüntüsü 2025-06-29 212905" src="https://github.com/user-attachments/assets/5c978efc-754d-48eb-abce-0f16791efc2b" />
+  <img width="1900" height="1000" alt="Ekran görüntüsü 2025-06-29 213029" src="https://github.com/user-attachments/assets/882b2f85-bd25-41db-9ab9-8f874b66c9e1" />
 - **Puan Güncelleme ve Silme**
+  <img width="900" height="500" alt="Ekran görüntüsü 2025-06-29 214105" src="https://github.com/user-attachments/assets/a6dd8dcc-4777-489e-9210-f37e846a9ca1" />
+  <img width="900" height="500" alt="Ekran görüntüsü 2025-06-29 213839" src="https://github.com/user-attachments/assets/b9d907a7-5ed6-4ae1-ad4e-9343ec856e27" />
 - **Yerel Veritabanı**
+  <img width="1900" height="1000" alt="Ekran görüntüsü 2025-06-29 222726" src="https://github.com/user-attachments/assets/d512ce77-2690-45f5-a841-db2f3ce00530" />
 
 ## Teknolojiler
 
